@@ -1,0 +1,30 @@
+import LayerText from "../component/Text";
+import { ICanvasTable } from "../typings/CanvasTable";
+import { IComponent } from "../typings/Component";
+import { LayerEvent } from "../core/LayerEvent";
+declare type IBodyCellProps = ICanvasTable.IBodyCellProps;
+declare type IEventCollection = IComponent.IEventCollection;
+export declare class BodyCell extends LayerText {
+    protected props: IBodyCellProps;
+    constructor(props: IBodyCellProps);
+    showSelection(): void;
+    update(): void;
+    get top(): number;
+    get left(): number;
+    get width(): number;
+    get column(): import("./Column").Column;
+    get height(): number;
+    get align(): "left" | "right" | "center";
+    get row(): import("./BodyRow").BodyRow;
+    get table(): import("../core/CanvasTable").default;
+    get isRender(): boolean;
+    get fixed(): "left" | "right";
+    get text(): string;
+    get name(): string;
+    get data(): any;
+    get zIndex(): 1 | 0;
+    trigger(type: keyof IEventCollection, event: LayerEvent): void;
+    private customRendered;
+    render(): void;
+}
+export {};

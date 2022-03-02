@@ -1,0 +1,30 @@
+import { ICanvasTable } from "../typings/CanvasTable";
+import LayerText from "../component/Text";
+import Layer from "../component/Layer";
+declare type IHeaderNodeProps = ICanvasTable.IHeaderNodeProps;
+declare class HeaderTreeNode extends LayerText {
+    protected props: IHeaderNodeProps;
+    constructor(props: IHeaderNodeProps);
+    parentCell: HeaderTreeNode;
+    childrenCell: HeaderTreeNode[];
+    get table(): import("../core/CanvasTable").default;
+    get header(): import("./HeaderTree").HeaderTree;
+    get fixed(): "left" | "right";
+    private _width;
+    get width(): any;
+    private _height;
+    get height(): number;
+    private _left;
+    get left(): number;
+    private _top;
+    get top(): number;
+    get align(): "left" | "right" | "center";
+    get text(): string;
+    get treeHeight(): number;
+    get siblings(): HeaderTreeNode[];
+    borderRect(): void;
+    get zIndex(): number;
+    customRendered: Layer;
+    render(): void;
+}
+export default HeaderTreeNode;
