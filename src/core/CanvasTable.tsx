@@ -238,7 +238,7 @@ class CanvasTable {
           className={'x-canvas-table'}
           style={{padding: `${WRAPPER_PADDING}px`}}
         />
-      )
+      ) as any
     }
     return this._wrapper;
   }
@@ -254,7 +254,7 @@ class CanvasTable {
         height={height * PIXEL_RATIO}
         style={{height: `${height}px`, width: `${width}px`}}
         ref={ref => {this.canvas = ref}}
-      />
+      /> as any
     );
 
     const scroll = (
@@ -285,7 +285,7 @@ class CanvasTable {
     );
     this.wrapper.appendChild(scroll.wrapper);
 
-    this.tooltip = <Tooltip />
+    this.tooltip = <Tooltip /> as any
     this.wrapper.appendChild(this.tooltip.wrapper);
   }
 

@@ -36,3 +36,5 @@ umd/*
 
 src/test/test.tsx
 src/test/test.html
+
+copy.sh
