@@ -16,10 +16,6 @@
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "umd"
-  ],
   "repository": "https://github.com/xwinstone/canvastable.git",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
