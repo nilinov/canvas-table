@@ -22,17 +22,20 @@ var _draw = require("../utils/draw");
 class HeaderTree extends _Component.Component {
   constructor(props) {
     super();
-    this.props = props; // 列配置的叶子节点是控制列的关键(除了锁列属性之外), 所以这四条属性都是叶子节点对应的列
+    this.props = props; // Листовой узел конфигурации столбца является ключом к управляющему
+    // столбцу (за исключением атрибута блокировки столбца),
+    // поэтому эти четыре атрибута являются столбцами,
+    // соответствующими листовому узлу
 
     this.columns = [];
     this.leftColumns = [];
     this.rightColumns = [];
     this.notFixedColumns = [];
-    this.deep = 1; // 深度
+    this.deep = 1; // Глубина
 
-    this.rootCells = []; // 第一层的cells
+    this.rootCells = []; // ячейки в первом слое
 
-    this.leafCells = []; // 叶子层的cells
+    this.leafCells = []; // ячейки листового слоя
 
     this.top = 0;
     const columnsProps = columnsPropsRearrange(props.colProps);
@@ -40,12 +43,12 @@ class HeaderTree extends _Component.Component {
     this.cellNodesInit(columnsProps);
   }
   /*
-   * 列处理规则:
-   * 1. title属性每层都生效
-   * 2. fixed字段只能在第一层设置, 子节点会自动继承
-   * 3. align都可以设置, 没设置会继承父节点
-   * 4. 其他所有属性只有在叶子节点设置才会生效
-   */
+    * Правила обработки столбцов:
+    * 1. Атрибут title действителен для каждого слоя
+    * 2. Фиксированное поле может быть установлено только на первом уровне, и дочерние узлы автоматически наследуют
+    * 3. align может быть установлен, если не установлен, он унаследует родительский узел
+    * 4. Все остальные свойства вступят в силу, только если они установлены на конечном узле.
+    */
 
 
   columnsInit({
@@ -53,10 +56,10 @@ class HeaderTree extends _Component.Component {
     notFixed,
     fixedRight
   }) {
-    // 初始化列
+    // инициализируем столбец
     let colIndex = 0;
     const propsArr = [fixedLeft, notFixed, fixedRight];
-    const colArr = [this.leftColumns, this.notFixedColumns, this.rightColumns]; // 所有表头单元格继承第一层的fixed属性
+    const colArr = [this.leftColumns, this.notFixedColumns, this.rightColumns]; // Все ячейки заголовка наследуют фиксированное свойство первого уровня
 
     [...fixedLeft, ...fixedRight, ...notFixed].forEach(rootCol => {
       (0, _tree.treeEach)(rootCol, colProps => {
@@ -93,7 +96,8 @@ class HeaderTree extends _Component.Component {
         table: table,
         ctx: table.ctx,
         style: {
-          padding: [0, table.style.padding]
+          padding: [0, table.style.padding],
+          ...currProps.styleColumn
         }
       });
 
@@ -167,7 +171,7 @@ class HeaderTree extends _Component.Component {
 exports.HeaderTree = HeaderTree;
 
 function columnsPropsRearrange(colProps) {
-  // 根据锁列的配置整理列的顺序
+  // Упорядочить порядок столбцов в соответствии с конфигурацией столбца блокировки
   const fixedLeft = colProps.filter(col => col.fixed === 'left').map((col, i) => {
     return { ...col,
       fixedIndex: i

@@ -78,7 +78,8 @@ export class HeaderTree extends Component {
                 table: table,
                 ctx: table.ctx,
                 style: {
-                    padding: [0, table.style.padding]
+                    padding: [0, table.style.padding],
+                    ...currProps.styleColumn,
                 }
             });
             if (isEmpty(currProps[PARENT_KEY])) {
@@ -90,7 +91,7 @@ export class HeaderTree extends Component {
                 propsQueue.push(...currProps.children.map(child => {
                     return {
                         [PARENT_KEY]: node,
-                        ...child
+                        ...child,
                     }
                 }));
             }
@@ -133,6 +134,7 @@ export class HeaderTree extends Component {
         const fixLeftCells = this.rootCells.filter(cell => cell.fixed === 'left');
         const fixRightCells = this.rootCells.filter(cell => cell.fixed === 'right');
         const notFixedCells = this.rootCells.filter(cell => cell.fixed !== 'left' && cell.fixed !== 'right');
+
         ctx.save();
         ctx.beginPath();
 

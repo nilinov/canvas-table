@@ -52,10 +52,10 @@ export default class Layer extends Component {
 
     if (!props.disabled && props.event) {
       this.on('onMouseEnter', () => {
-        this.ctx.canvas.parentElement.style.cursor = 'pointer';
+        // this.ctx.canvas.parentElement.style.cursor = 'pointer';
       });
       this.on('onMouseLeave', () => {
-        this.ctx.canvas.parentElement.style.cursor = 'auto';
+        // this.ctx.canvas.parentElement.style.cursor = 'auto';
       })
     }
   }

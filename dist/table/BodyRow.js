@@ -23,11 +23,9 @@ class BodyRow extends _Layer.default {
     });
     this.props = props;
     this.index = this.props.index;
-    this.on('onMouseEnter', () => {
-      this.highlight(true);
+    this.on('onMouseEnter', () => {// this.highlight(true)
     });
-    this.on('onMouseLeave', () => {
-      this.highlight(false);
+    this.on('onMouseLeave', () => {// this.highlight(false)
     });
   }
 
