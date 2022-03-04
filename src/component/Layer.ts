@@ -103,7 +103,7 @@ export default class Layer extends Component {
 
   get left ():number {
     const parent = this.parent
-    const parentLeft = parent ? parent.left + parent.padding.left : 0;
+    const parentLeft = (parent ? parent.left + parent.padding.left : 0) + this.style.left;
     let preSiblingsLeft = 0
     for (let pre of this.sibings) {
       if (pre === this) {
@@ -129,7 +129,7 @@ export default class Layer extends Component {
 
     const parentTop = parent ? parent.top + parent.padding.top: 0;
     // console.log(parentTop, verticalTop, this.style.top )
-    return parentTop + verticalTop + this.style.top
+    return (parentTop + verticalTop + this.style.top) + this.style.top;
   }
 
   get innerWidth () {
