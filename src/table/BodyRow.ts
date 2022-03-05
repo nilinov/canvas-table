@@ -18,10 +18,10 @@ export class BodyRow extends Layer {
       }
     });
     this.on('onMouseEnter', () => {
-      this.highlight(true)
+      // this.highlight(true)
     });
     this.on('onMouseLeave', () => {
-      this.highlight(false)
+      // this.highlight(false)
     });
   }
   index = this.props.index;

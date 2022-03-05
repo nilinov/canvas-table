@@ -9,5 +9,6 @@ declare class Svg extends Layer {
     constructor(props: ISvgProps);
     init(): void;
     render(): void;
+    childrenRender(): void;
 }
 export default Svg;

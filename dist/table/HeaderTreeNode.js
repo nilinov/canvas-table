@@ -19,6 +19,8 @@ var _draw = require("../utils/draw");
 
 class HeaderTreeNode extends _Text.default {
   constructor(props) {
+    var _props$style$backgrou, _props$style, _props$style$fontWeig, _props$style2;
+
     super(props);
     this.props = props;
     this.parentCell = null;
@@ -28,9 +30,9 @@ class HeaderTreeNode extends _Text.default {
     this._left = null;
     this._top = null;
     this.customRendered = null;
-    this.style.backgroundColor = this.table.style.headerBackColor;
-    this.style.fontWeight = 'bold';
-    this.parentCell = props.parent; // 把自身添加到父元素的children中
+    this.style.backgroundColor = (_props$style$backgrou = (_props$style = props.style) === null || _props$style === void 0 ? void 0 : _props$style.backgroundColor) !== null && _props$style$backgrou !== void 0 ? _props$style$backgrou : this.table.style.headerBackColor;
+    this.style.fontWeight = (_props$style$fontWeig = (_props$style2 = props.style) === null || _props$style2 === void 0 ? void 0 : _props$style2.fontWeight) !== null && _props$style$fontWeig !== void 0 ? _props$style$fontWeig : 'bold';
+    this.parentCell = props.parent; // добавляем себя в дочерние элементы родительского элемента
 
     if (this.parentCell) {
       this.parentCell.childrenCell.push(this);

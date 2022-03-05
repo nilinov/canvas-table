@@ -45,11 +45,9 @@ class Layer extends _Component.Component {
     }
 
     if (!props.disabled && props.event) {
-      this.on('onMouseEnter', () => {
-        this.ctx.canvas.parentElement.style.cursor = 'pointer';
+      this.on('onMouseEnter', () => {// this.ctx.canvas.parentElement.style.cursor = 'pointer';
       });
-      this.on('onMouseLeave', () => {
-        this.ctx.canvas.parentElement.style.cursor = 'auto';
+      this.on('onMouseLeave', () => {// this.ctx.canvas.parentElement.style.cursor = 'auto';
       });
     }
   }
@@ -100,7 +98,7 @@ class Layer extends _Component.Component {
 
   get left() {
     const parent = this.parent;
-    const parentLeft = parent ? parent.left + parent.padding.left : 0;
+    const parentLeft = (parent ? parent.left + parent.padding.left : 0) + this.style.left;
     let preSiblingsLeft = 0;
 
     for (let pre of this.sibings) {
@@ -131,7 +129,7 @@ class Layer extends _Component.Component {
 
     const parentTop = parent ? parent.top + parent.padding.top : 0; // console.log(parentTop, verticalTop, this.style.top )
 
-    return parentTop + verticalTop + this.style.top;
+    return parentTop + verticalTop + this.style.top + this.style.top;
   }
 
   get innerWidth() {
