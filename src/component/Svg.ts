@@ -32,7 +32,7 @@ class Svg extends Layer {
     }
 
     render() {
-        console.log( `SVG: render` )
+        // console.log( `SVG: render` )
         const { path, style: { color } } = this.props
         const key = imgKey( path, color )
         const img = imgCache[key]
