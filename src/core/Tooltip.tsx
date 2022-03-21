@@ -13,7 +13,7 @@ class Tooltip {
 
   show (text, layer: Layer) {
     this.wrapper.style.display = 'inline-block'
-    this.wrapper.textContent = text
+    this.wrapper.innerHTML = text
     const clientRect = layer.table.wrapper.getBoundingClientRect()
     const top = layer.top + clientRect.top
     const left = layer.left + clientRect.left + layer.width / 2
