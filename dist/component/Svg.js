@@ -11,8 +11,6 @@ var _Layer = _interopRequireDefault(require("./Layer"));
 
 var _draw = require("../utils/draw");
 
-var _utils = require("../utils/utils");
-
 class Svg extends _Layer.default {
   constructor(props) {
     // this.ctx
@@ -42,7 +40,7 @@ class Svg extends _Layer.default {
   }
 
   render() {
-    console.log(`SVG: render`);
+    // console.log( `SVG: render` )
     const {
       path,
       style: {
@@ -67,26 +65,6 @@ class Svg extends _Layer.default {
 
       if (backgroundColor) {
         (0, _draw.drawRect)(this.ctx, left, top + 1, width, height - 1, backgroundColor);
-      }
-
-      if ((0, _utils.isNotEmptyArray)(border)) {
-        const [topB, rightB, bottomB, leftB] = border;
-
-        if (topB) {
-          (0, _draw.drawLine)(this.ctx, left, top, left + width, top, topB.color);
-        }
-
-        if (rightB) {
-          (0, _draw.drawLine)(this.ctx, left + width, top, left + width, top + height, rightB.color);
-        }
-
-        if (bottomB) {
-          (0, _draw.drawLine)(this.ctx, left - this.style.left, top - this.style.top + height, left - this.style.left + width, top - this.style.top + height, bottomB.color);
-        }
-
-        if (leftB) {
-          (0, _draw.drawLine)(this.ctx, left, top, left, top + height, leftB.color);
-        }
       }
     }
   }
