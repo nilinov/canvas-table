@@ -209,6 +209,12 @@ export default class Layer extends Component {
         drawLine(this.ctx, left, top, left, top + height, leftB.color)
       }
     }
+    if (this.props.validate) {
+      drawLine(this.ctx, left, top, left + width, top, this.props.validate)
+      drawLine(this.ctx, left + width - 1, top, left + width - 1, top + height, this.props.validate)
+      drawLine(this.ctx, left, top + height - 1, left + width, top + height - 1, this.props.validate)
+      drawLine(this.ctx, left, top, left, top + height, this.props.validate)
+    }
   }
 
   render () {

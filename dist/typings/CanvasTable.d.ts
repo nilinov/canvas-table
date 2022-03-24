@@ -85,12 +85,6 @@ export declare module ICanvasTable {
     onRow?: ITableEventHandler
   }
 
-  interface IHeaderNodeProps{
-    colProps: IColumn
-    parent?: HeaderTreeNode
-    table: CanvasTable
-  }
-
   interface IBaseCellProps {
   }
 
