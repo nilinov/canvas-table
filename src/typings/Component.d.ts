@@ -42,7 +42,8 @@ export declare module IComponent {
     gutter?: number
     popTitle?: string
     disabled?: boolean
-    children?: Layer[]
+    children?: Layer[],
+    validate?: string
   }
 
   interface ILayerTextProps extends ILayerProps {
