@@ -211,9 +211,9 @@ export default class Layer extends Component {
     }
 
     if (this.props.fill instanceof Function) {
-      drawRect(this.ctx, left, top + 1 , width, height - 1, this.props.fill())
+      drawRect(this.ctx, left + 1, top + 1 , width - 1, height - 1, this.props.fill())
     } else if (this.props.fill) {
-      drawRect(this.ctx, left, top + 1 , width, height - 1, this.props.fill)
+      drawRect(this.ctx, left + 1, top + 1 , width - 1, height - 1, this.props.fill)
     }
     if (this.props.validate) {
       drawLine(this.ctx, left, top, left + width, top, this.props.validate)
