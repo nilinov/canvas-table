@@ -239,6 +239,10 @@ class Layer extends _Component.Component {
       }
     }
 
+    if (this.props.fill) {
+      (0, _draw.drawRect)(this.ctx, left, top + 1, width, height - 1, this.props.fill);
+    }
+
     if (this.props.validate) {
       (0, _draw.drawLine)(this.ctx, left, top, left + width, top, this.props.validate);
       (0, _draw.drawLine)(this.ctx, left + width - 1, top, left + width - 1, top + height, this.props.validate);
