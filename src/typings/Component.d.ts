@@ -44,7 +44,7 @@ export declare module IComponent {
     disabled?: boolean
     children?: Layer[],
     validate?: string
-    fill?: string
+    fill?: string | Function
   }
 
   interface ILayerTextProps extends ILayerProps {

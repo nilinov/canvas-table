@@ -210,7 +210,9 @@ export default class Layer extends Component {
       }
     }
 
-    if (this.props.fill) {
+    if (this.props.fill instanceof Function) {
+      drawRect(this.ctx, left, top + 1 , width, height - 1, this.props.fill())
+    } else if (this.props.fill) {
       drawRect(this.ctx, left, top + 1 , width, height - 1, this.props.fill)
     }
     if (this.props.validate) {
