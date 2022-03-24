@@ -239,7 +239,9 @@ class Layer extends _Component.Component {
       }
     }
 
-    if (this.props.fill) {
+    if (this.props.fill instanceof Function) {
+      (0, _draw.drawRect)(this.ctx, left, top + 1, width, height - 1, this.props.fill());
+    } else if (this.props.fill) {
       (0, _draw.drawRect)(this.ctx, left, top + 1, width, height - 1, this.props.fill);
     }
 
