@@ -266,6 +266,11 @@ class CanvasTable {
         this.render();
       }, 30);
     }
+
+    if (this.style.modalBd) {
+      this.ctx.fillStyle = this.style.modalBd;
+      this.ctx.fillRect(0, 0, this.width, this.height);
+    }
   }
 
   resize() {
