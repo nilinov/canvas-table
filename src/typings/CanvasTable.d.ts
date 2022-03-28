@@ -22,6 +22,7 @@ export declare module ICanvasTable {
     headerBackColor? : string
     headerRowHeight? : number
     padding?: number  // left and right padding of table's cell
+    modalBd?: string
   }
 
   interface ITableStyleProps {
