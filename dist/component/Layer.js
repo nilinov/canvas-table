@@ -240,9 +240,9 @@ class Layer extends _Component.Component {
     }
 
     if (this.props.fill instanceof Function) {
-      (0, _draw.drawRect)(this.ctx, left, top + 1, width, height - 1, this.props.fill());
+      (0, _draw.drawRect)(this.ctx, left + 1, top + 1, width - 1, height - 1, this.props.fill());
     } else if (this.props.fill) {
-      (0, _draw.drawRect)(this.ctx, left, top + 1, width, height - 1, this.props.fill);
+      (0, _draw.drawRect)(this.ctx, left + 1, top + 1, width - 1, height - 1, this.props.fill);
     }
 
     if (this.props.validate) {
